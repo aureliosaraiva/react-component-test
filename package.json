@@ -6,7 +6,7 @@
   "scripts": {
     "test": "BABEL_ENV=test jest",
     "test:watch": "BABEL_ENV=test jest --watch",
-    "postinstall": "BABEL_ENV=build babel --ignore=__tests__,__mocks__,beforeTest.js ./src/js -d ./lib"
+    "postinstall": "BABEL_ENV=build babel --ignore=__tests__,__mocks__,before-test.js ./src/js -d ./lib"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -41,9 +41,6 @@
     "automock": true,
     "timers": "fake",
     "cacheDirectory": "./.jest-cache",
-    "setupFiles": [
-      "<rootDir>/src/beforeTest.js"
-    ],
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/react",
       "<rootDir>/node_modules/react-dom"
