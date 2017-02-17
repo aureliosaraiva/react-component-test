@@ -1,12 +1,12 @@
 {
   "name": "react-package-test",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "react-package-test",
   "main": "lib/index.js",
   "scripts": {
     "test": "BABEL_ENV=test jest",
     "test:watch": "BABEL_ENV=test jest --watch",
-    "preinstall": "BABEL_ENV=build babel --ignore=__tests__,__mocks__,beforeTest.js ./src/js -d ./lib"
+    "postinstall": "BABEL_ENV=build babel --ignore=__tests__,__mocks__,beforeTest.js ./src/js -d ./lib"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
