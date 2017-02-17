@@ -1,0 +1,6 @@
+exports[`MyComponent renders correctly 1`] = `
+<div
+  className="my-class">
+  My external component
+</div>
+`;
