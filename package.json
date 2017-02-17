@@ -33,7 +33,9 @@
     "react-dom": "^15.3.x",
     "react-test-renderer": "^15.4.2"
   },
-  "dependencies": {},
+  "dependencies": {
+
+  },
   "peerDependencies": {
     "react": ">= 15.3.0",
     "react-dom": ">= 15.3.0"
