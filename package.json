@@ -1,0 +1,54 @@
+{
+  "name": "react-package-test",
+  "version": "1.0.0",
+  "description": "react-package-test",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "BABEL_ENV=test jest",
+    "test:watch": "BABEL_ENV=test jest --watch",
+    "scripts": "BABEL_ENV=build babel --ignore=__tests__,__mocks__,beforeTest.js ./src/js -d ./lib",
+    "scripts:watch": "BABEL_ENV=build babel --ignore=__tests__,__mocks__,beforeTest.js ./src/js --watch -s -d ./lib",
+    "lint:styles": "scss-lint src/scss",
+    "lint:scripts": "eslint -c .eslintrc src",
+    "lint": "npm run lint:styles && npm run lint:scripts",
+    "lint:fix": "eslint -c .eslintrc --fix src",
+    "css-bundles": "node ./makeBundles.js",
+    "build:umd": "npm run css-bundles && webpack --progress --colors",
+    "prebuild": "rimraf lib && rimraf dist && rimraf src/scss/bundles && npm run lint",
+    "build": "npm run scripts && npm run build:umd"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.13.2",
+    "babel-eslint": "^7.0.0",
+    "babel-jest": "^18.0.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "eslint": "^3.3.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
+    "eslint-plugin-react": "^6.1.2",
+    "jest-cli": "^18.1.0",
+    "react": "^15.3.x",
+    "react-addons-css-transition-group": "^15.3.x",
+    "react-addons-test-utils": "^15.3.x",
+    "react-addons-transition-group": "^15.3.x",
+    "react-dom": "^15.3.x"
+  },
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "react": ">= 15.3.0",
+    "react-dom": ">= 15.3.0"
+  },
+  "jest": {
+    "automock": true,
+    "timers": "fake",
+    "cacheDirectory": "./.jest-cache",
+    "setupFiles": [
+      "<rootDir>/src/beforeTest.js"
+    ]
+  }
+}
